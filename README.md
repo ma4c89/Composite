@@ -50,7 +50,7 @@ Este projeto simula um sistema de pedidos, onde produtos podem ser agrupados den
 ---
 
 ## 📁 Estrutura do Projeto
-src/
+src/ <br>
 ├── Main.java // Classe principal para execução <br>
 ├── Produto.java // Implementação de produto simples <br>
 ├── Caixa.java // Implementação de item composto <br>
