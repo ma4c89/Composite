@@ -1,7 +1,7 @@
 <h1 align="center">📦 Sistema de Pedidos com o Padrão Composite</h1>
 
 <p align="center">
-  Projeto Java que demonstra o uso do padrão de projeto <strong>Composite</strong> na modelagem de um sistema de pedidos.
+  Projeto Java que demonstra o uso do padrão de projeto estrutural <strong>Composite </strong> na modelagem de um sistema de pedidos.
 </p>
 
 ## 📚 Sobre o Projeto
@@ -23,11 +23,9 @@ Este projeto simula um sistema de pedidos, onde produtos podem ser agrupados den
 ## 🧠 Padrão de Projeto Utilizado
 
 ### 🧩 Composite
-
 > “Compõe objetos em estruturas de árvore para representar hierarquias parte-todo. O Composite permite que os clientes tratem objetos individuais e composições de objetos de forma uniforme.”
 
 **No projeto:**
-
 - `ItemPedido`: interface comum.
 - `Produto`: representa um item simples.
 - `Caixa`: representa um item composto.
@@ -40,8 +38,7 @@ Este projeto simula um sistema de pedidos, onde produtos podem ser agrupados den
 ├── Produto.java // Implementação de produto simples  <br>
 ├── Caixa.java // Implementação de item composto  <br>
 ├── Pedido.java // Contém uma ou mais caixas  <br>
-└── ItemPedido.java // Interface comum  <br>
-
+└── ItemPedido.java // Interface  <br>
 
 ---
 
@@ -50,12 +47,23 @@ Este projeto simula um sistema de pedidos, onde produtos podem ser agrupados den
 ```java
 Produto p1 = new Produto("Mouse", 10);
 Produto p2 = new Produto("Teclado", 100);
+Produto p3 = new Produto("Monitor", 500);
+Produto p4 = new Produto("Fone de Ouvido", 20);
 
 Caixa c1 = new Caixa();
-c1.addItemPedido(p1);
-c1.addItemPedido(p2);
+Caixa c2 = new Caixa(); 
 
+c2.addItemPedido(p1);
+c2.addItemPedido(p2);
+c2.addItemPedido(p3);
+
+c1.addItemPedido(c2); 
+c1.addItemPedido(p4);
+
+c1.removerItemPedido(p4);
+        
 Pedido pe1 = new Pedido();
+       
 pe1.addCaixa(c1);
 
 System.out.println("Valor total do pedido: R$" + pedido.calcularValorTotal());
